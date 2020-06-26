@@ -1,72 +1,26 @@
-import React from "react";
-import PropType from "prop-types";
-import styled from 'styled-components'
+// import React from "react";
+import styled from "styled-components";
+import PropType from "prop-types"
 
-// componentes do texto:
-// tipo = <span></span>
-// color
-// font-size
-// font-weight
-// text-decoration
-// alinhamento
-// alinhamento tablet
-// alinhamento desktop
-const type = {
-  as:
-    "p" |
-    "label" |
-    "div" |
-    "span" |
-    "sup" |
-    "sub" |
-    "h1" |
-    "h2" |
-    "h3" |
-    "h4" |
-    "h5" |
-    "h6",
-};
+const Text = styled.p`
+  color: ${(props) => {
+    return props.color ? props.color : "pink"
+  }};
+  font-size: 20px;
+  ${(props) => {
+    switch (props.type) {
+      case "default":
+        return "color: red; font-size: 50px";
+      case "default2":
+        return "color: green";
+      default:
+        return;
+    }
+  }}
+`;
 
-function Text({
-  type,
-  name,
-  color,
-  height,
-  size,
-  line,
-  font,
-  weight,
-  align,
-  alignDesktop,
-  alignTablet,
-}) {
-  const styles = {
-    color: color,
-    height: height,
-    fontSize: size,
-    lineHeight: line,
-    fontFamily: font,
-    textAlign: align,
-  };
-
-  return (
-    <>
-      <p style={styles}>Texto</p>
-    </>
-  );
+Text.propType = {
+  color: PropType.string.isRequired
 }
-
-Text.propTypes = {
-  name: PropType.string.isRequired,
-  type: PropType.string.isRequired,
-  color: PropType.string.isRequired,
-  size: PropType.number.isRequired,
-  line: PropType.number,
-  font: PropType.string.isRequired,
-  weight: PropType.string.isRequired,
-  align: PropType.string,
-  alignTablet: PropType.string,
-  alignDesktop: PropType.string,
-};
 
 export default Text;

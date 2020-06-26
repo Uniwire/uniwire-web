@@ -7,7 +7,7 @@ function App() {
   return(
     <>
     <h1>App</h1>
-    <Text color="red" size="30px"/>
+    <Text as="h1" type="default" color="grey">Olá</Text>
     </>
   );
 }
