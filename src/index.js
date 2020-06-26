@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import Text from './components/text/Text'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+function App() {
+  return(
+    <>
+    <h1>App</h1>
+    <Text color="red" size="30px"/>
+    </>
+  );
+}
+
+render(<App />, document.getElementById("root"));
