@@ -6,8 +6,9 @@ import Text from './components/text/Text'
 function App() {
   return(
     <>
-    <h1>App</h1>
-    <Text as="h1" type="default" color="grey">Olá</Text>
+    <h1>Está página é um só um exemplo de teste de componentes,<br/>
+    logo menos será adicionado o StoryBook para melhor vizualição dos mesmos. </h1>
+    <Text type="default">Texto</Text>
     </>
   );
 }
