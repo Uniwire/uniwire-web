@@ -8,7 +8,7 @@ function App() {
     <>
     <h1>Está página é um só um exemplo de teste de componentes,<br/>
     logo menos será adicionado o StoryBook para melhor vizualição dos mesmos. </h1>
-    <Text>Texto</Text>
+    <Text type="default">Texto</Text>
     </>
   );
 }

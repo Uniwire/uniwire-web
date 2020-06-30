@@ -16,6 +16,10 @@ const Text = styled.p`
   @media screen and (min-width: 960px) {
     text-align: ${props => props.desktopAlign};
   }
+
+  // This props standardizes text types if you don't want to customize
+  // and choose one already assembled. It is not yet configured with the
+  // right styles, other components need to be implemented first.
   ${(props) => {
     switch (props.type) {
       case "default":
