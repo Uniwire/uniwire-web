@@ -29,12 +29,32 @@ const Text = styled.p`
 `;
 
 Text.propTypes = {
+  type: (props) => {
+    if (props.type) {
+      PropType.checkPropTypes(
+        {
+          type: PropType.string.isRequired,
+        },
+        { type: props.type },
+        "prop",
+        "Componente Text"
+      )
+    } else {
+      PropType.checkPropTypes(
+        {
+          color: PropType.string.isRequired,
+          size: PropType.string.isRequired,
+          family: PropType.string.isRequired,
+        },
+        { color: props.color, size: props.size, family: props.family, },
+        "prop",
+        "Componente Text"
+      )
+    }
+    return null
+  },
   as: PropType.string,
-  type: PropType.string,
-  color: PropType.string.isRequired,
-  size: PropType.number.isRequired,
   weight: PropType.string,
-  family: PropType.string.isRequired,
   decoration: PropType.string,
   height: PropType.number,
   align: PropType.string,
