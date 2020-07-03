@@ -7,7 +7,7 @@ function App() {
   return(
     <>
     <h1>Está página é um só um exemplo de teste de componentes,<br/>
-    logo menos será adicionado o StoryBook para melhor vizualição dos mesmos. </h1>
+    logo menos será adicionado o StoryBook para melhor vizualização dos mesmos. </h1>
     <Text type="default">Texto</Text>
     </>
   );
