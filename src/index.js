@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import Text from './components/text/Text'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function App() {
+  return(
+    <>
+    <h1>Está página é um só um exemplo de teste de componentes,<br/>
+    logo menos será adicionado o StoryBook para melhor vizualização dos mesmos. </h1>
+    <Text type="default">Texto</Text>
+    </>
+  );
+}
+
+render(<App />, document.getElementById("root"));
