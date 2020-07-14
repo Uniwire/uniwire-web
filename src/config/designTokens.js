@@ -1,34 +1,55 @@
 import PropType from "prop-types";
+import { createGlobalStyle } from "styled-components";
 
-export const BreakPoint = "mobile" | "tablet" | "desktop"
-export const TypographyWeight = "light" | "regular" | "bold"
-export const TypographySize = "big" | "default" | "small" | "xsmall"
+export const FontFamily = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-// ShadowsType.propTypes = {
-//   idle: PropType.string,
-//   active: PropType.string,
-//   hover: PropType.string
-// }
+  @font-face {
+    font-display: block;
+    font-family: 'Quicksand-Bold';
+    src:  url('/fonts/Quicksand-Bold.ttf') format('truetype');
+  }
 
-// TypographySizeSettings.propTypes = {
-//   size: PropType.number,
-//   lineHeight: PropType.number
-// }
+  @font-face {
+    font-display: block;
+    font-family: 'Quicksand-SemiBold';
+    src:  url('/fonts/Quicksand-SemiBold.ttf') format('truetype');
+  }
 
-// TypographyResponsiveSizeSettings.propTypes = {
-//   size: { desktop: PropType.number, default: PropType.number },
-//   lineHeight: { desktop: PropType.number, default: PropType.number }
-// }
+  @font-face {
+    font-display: block;
+    font-family: 'Quicksand-Regular';
+    src:  url('/fonts/Quicksand-Regular.ttf') format('truetype');
+  }
 
-// TypographyResponsiveCollection.propTypes = {
-//   family: PropType.string,
-//   sizes: PropType.TypographyResponsiveSizeSettings
-// }
+  @font-face {
+    font-display: block;
+    font-family: 'Quicksand-Medium';
+    src:  url('/fonts/Quicksand-Medium.ttf') format('truetype');
+  }
 
-// TypographyCollection.propTypes = {
-//   family: PropType.string,
-//   sizes: PropType.TypographySize
-// }
+  @font-face {
+    font-display: block;
+    font-family: 'Quicksand-Light';
+    src:  url('/fonts/Quicksand-Light.ttf') format('truetype');
+  }
+
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: ${designTokens.colors.grey065};
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  * {
+    min-height: 0;
+  }
+`;
 
 const designTokens = {
   grid: {
@@ -148,22 +169,52 @@ const designTokens = {
         "0 2px 16px 0 rgba(47, 57, 65, 0.16), 0 2px 8px -2px rgba(47, 57, 65, 0.32), 0 2px 16px 0 rgba(47, 57, 65, 0.32)",
     },
   },
-}
+};
+
+export const BreakPoint = "mobile" | "tablet" | "desktop";
+export const TypographyWeight = "light" | "regular" | "bold";
+export const TypographySize = "big" | "default" | "small" | "xsmall";
+
+ShadowsType.propTypes = {
+  idle: PropType.string,
+  active: PropType.string,
+  hover: PropType.string,
+};
+
+TypographySizeSettings.propTypes = {
+  size: PropType.number,
+  lineHeight: PropType.number,
+};
+
+TypographyResponsiveSizeSettings.propTypes = {
+  size: { desktop: PropType.number, default: PropType.number },
+  lineHeight: { desktop: PropType.number, default: PropType.number },
+};
+
+TypographyResponsiveCollection.propTypes = {
+  family: PropType.string,
+  sizes: PropType.TypographyResponsiveSizeSettings,
+};
+
+TypographyCollection.propTypes = {
+  family: PropType.string,
+  sizes: PropType.TypographySize,
+};
 
 designTokens.propTypes = {
   grid: {
-    columns: PropType.number
+    columns: PropType.number,
   },
   breakpoints: PropType.number,
   typography: {
     title: PropType.TypographyResponsiveCollection,
-    text: PropType.TypographyCollection
+    text: PropType.TypographyCollection,
   },
   colors: PropType.string,
   shadows: {
     default: PropType.ShadowsType,
     dark: PropType.ShadowsType,
-  }
-}
+  },
+};
 
 export default designTokens;

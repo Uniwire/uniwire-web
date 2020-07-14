@@ -4,7 +4,7 @@ import PropType from "prop-types";
 const Text = styled.p`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}px;
-  font-weigth: ${(props) => props.weight};
+  font-weight: ${(props) => props.weight};
   font-family: ${(props) => props.family};
   text-decoration: ${(props) => props.decoration};
   line-height: ${(props) => props.height}px;
@@ -22,7 +22,7 @@ const Text = styled.p`
   ${(props) => {
     switch (props.type) {
       case "default":
-        return "color: red; font-size: 20px; font-family: Futura";
+        return "color: red; font-size: 20px; font-family: Quicksand; font-weight: 600";
       case "default2":
         return "color: green";
       default:
