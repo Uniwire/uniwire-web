@@ -1,56 +1,6 @@
 import PropType from "prop-types";
 import { createGlobalStyle } from "styled-components";
 
-export const FontFamily = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-  @font-face {
-    font-display: block;
-    font-family: 'Quicksand-Bold';
-    src:  url('/fonts/Quicksand-Bold.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: 'Quicksand-SemiBold';
-    src:  url('/fonts/Quicksand-SemiBold.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: 'Quicksand-Regular';
-    src:  url('/fonts/Quicksand-Regular.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: 'Quicksand-Medium';
-    src:  url('/fonts/Quicksand-Medium.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: 'Quicksand-Light';
-    src:  url('/fonts/Quicksand-Light.ttf') format('truetype');
-  }
-
-  html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
-  body {
-    background-color: ${designTokens.colors.grey065};
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  * {
-    min-height: 0;
-  }
-`;
-
 const designTokens = {
   grid: {
     columns: {
@@ -171,9 +121,45 @@ const designTokens = {
   },
 };
 
+export const FontFamily = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: ${designTokens.colors.grey065};
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  * {
+    min-height: 0;
+  }
+`;
+
 export const BreakPoint = "mobile" | "tablet" | "desktop";
 export const TypographyWeight = "light" | "regular" | "bold";
 export const TypographySize = "big" | "default" | "small" | "xsmall";
+
+designTokens.propTypes = {
+  grid: {
+    columns: PropType.number,
+  },
+  breakpoints: PropType.number,
+  typography: {
+    title: PropType.TypographyResponsiveCollection,
+    text: PropType.TypographyCollection,
+  },
+  colors: PropType.string,
+  shadows: {
+    default: PropType.ShadowsType,
+    dark: PropType.ShadowsType,
+  },
+};
 
 ShadowsType.propTypes = {
   idle: PropType.string,
@@ -199,22 +185,6 @@ TypographyResponsiveCollection.propTypes = {
 TypographyCollection.propTypes = {
   family: PropType.string,
   sizes: PropType.TypographySize,
-};
-
-designTokens.propTypes = {
-  grid: {
-    columns: PropType.number,
-  },
-  breakpoints: PropType.number,
-  typography: {
-    title: PropType.TypographyResponsiveCollection,
-    text: PropType.TypographyCollection,
-  },
-  colors: PropType.string,
-  shadows: {
-    default: PropType.ShadowsType,
-    dark: PropType.ShadowsType,
-  },
 };
 
 export default designTokens;
