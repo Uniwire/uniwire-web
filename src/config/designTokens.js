@@ -1,6 +1,28 @@
 import PropType from "prop-types";
 import { createGlobalStyle } from "styled-components";
 
+export const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+  html {
+    font-family: sans-serif;
+    background-color: "black";
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: "black";
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  * {
+    min-height: 0;
+  }
+`;
+
+
 const designTokens = {
   grid: {
     columns: {
@@ -17,9 +39,9 @@ const designTokens = {
   typography: {
     title: {
       family: {
-        light: ", sans-serif",
-        regular: ",sans-serif",
-        bold: ",sans-serif",
+        light: "Indie-Flower, sans-serif",
+        regular: "Indie-Flower, sans-serif",
+        bold: "Indie-Flower, sans-serif",
       },
       sizes: {
         big: {
@@ -42,9 +64,9 @@ const designTokens = {
     },
     text: {
       family: {
-        light: ", sans-serif",
-        regular: ", sans-serif",
-        bold: ", sans-serif",
+        light: "Quicksand, sans-serif",
+        regular: "Quicksand, sans-serif",
+        bold: "Quicksand, sans-serif",
       },
       sizes: {
         big: {
@@ -121,70 +143,100 @@ const designTokens = {
   },
 };
 
-export const FontFamily = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-  html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
-  body {
-    background-color: ${designTokens.colors.grey065};
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  * {
-    min-height: 0;
-  }
-`;
-
-export const BreakPoint = "mobile" | "tablet" | "desktop";
-export const TypographyWeight = "light" | "regular" | "bold";
-export const TypographySize = "big" | "default" | "small" | "xsmall";
-
 designTokens.propTypes = {
   grid: {
-    columns: PropType.number,
+    columns: {
+      mobile: PropType.number,
+      tablet: PropType.number,
+      desktop: PropType.number,
+    },
   },
-  breakpoints: PropType.number,
+  breakpoints: {
+    mobile: PropType.number,
+    tablet: PropType.number,
+    desktop: PropType.number,
+  },
   typography: {
-    title: PropType.TypographyResponsiveCollection,
-    text: PropType.TypographyCollection,
+    title: {
+      family: {
+        light: PropType.string,
+        regular: PropType.string,
+        bold: PropType.string,
+      },
+      size: {
+        big: {
+          size: {
+            desktop: PropType.number,
+            default: PropType.number,
+          },
+        },
+        default: {
+          size: {
+            desktop: PropType.number,
+            default: PropType.number,
+          },
+        },
+        small: {
+          size: {
+            desktop: PropType.number,
+            default: PropType.number,
+          },
+        },
+        xsmall: {
+          size: {
+            desktop: PropType.number,
+            default: PropType.number,
+          },
+        },
+      },
+    },
+    text: {
+      family: {
+        light: PropType.string,
+        regular: PropType.string,
+        bold: PropType.string,
+      },
+      size: {
+        big: {
+          size: {
+            size: PropType.number,
+            lineHeight: PropType.number,
+          },
+        },
+        default: {
+          size: {
+            size: PropType.number,
+            lineHeight: PropType.number,
+          },
+        },
+        small: {
+          size: {
+            size: PropType.number,
+            lineHeight: PropType.number,
+          },
+        },
+        xsmall: {
+          size: {
+            size: PropType.number,
+            lineHeight: PropType.number,
+          },
+        },
+      },
+    },
   },
   colors: PropType.string,
   shadows: {
-    default: PropType.ShadowsType,
-    dark: PropType.ShadowsType,
+    default: {
+      idle: PropType.string,
+      active: PropType.string,
+      hover: PropType.string,
+    },
+    dark: {
+      idle: PropType.string,
+      active: PropType.string,
+      hover: PropType.string,
+    },
   },
-};
-
-ShadowsType.propTypes = {
-  idle: PropType.string,
-  active: PropType.string,
-  hover: PropType.string,
-};
-
-TypographySizeSettings.propTypes = {
-  size: PropType.number,
-  lineHeight: PropType.number,
-};
-
-TypographyResponsiveSizeSettings.propTypes = {
-  size: { desktop: PropType.number, default: PropType.number },
-  lineHeight: { desktop: PropType.number, default: PropType.number },
-};
-
-TypographyResponsiveCollection.propTypes = {
-  family: PropType.string,
-  sizes: PropType.TypographyResponsiveSizeSettings,
-};
-
-TypographyCollection.propTypes = {
-  family: PropType.string,
-  sizes: PropType.TypographySize,
 };
 
 export default designTokens;

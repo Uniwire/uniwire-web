@@ -22,7 +22,7 @@ const Text = styled.p`
   ${(props) => {
     switch (props.type) {
       case "default":
-        return "color: red; font-size: 20px; font-family: Quicksand, sans-serif; font-weight: 100";
+        return "color: red; font-size: 50px; font-family: Quicksand, sans-serif; font-weight: 100";
       case "default2":
         return "color: green";
       default:

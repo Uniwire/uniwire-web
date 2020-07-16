@@ -1,14 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Text from './components/text/Text'
-
+import React from "react";
+import { render } from "react-dom";
+import Text from "./components/text/Text";
+import designTokens from "./config/designTokens";
+import index from "./index.module.css"
 
 function App() {
-  return(
+  return (
     <>
-    <h1>Está página é um só um exemplo de teste de componentes,<br/>
-    logo menos será adicionado o StoryBook para melhor vizualização dos mesmos. </h1>
-    <Text type="default">Texto</Text>
+      <img src={"../static/images/logo-uniwire.svg"} alt="logo uniwire"/>
+      <Text color={designTokens.colors.black100} size={50} family={"Quicksand, sans-serif"}>uniwire</Text>
     </>
   );
 }
