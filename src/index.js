@@ -43,7 +43,7 @@ function App() {
         >
           A Uniwire é uma empresa responsável pela conexão
           clara e eficiente entre quem busca e oferece<br/>
-          vagas. Nosso maior objetivo é ampar universitários da UFBC que estão em busca
+          vagas. Nosso maior objetivo é amparar universitários da UFABC que estão em busca
           de uma residência, garantindo melhores preços e serviços.
         </Text>
       </Container>
