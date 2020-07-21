@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "react-dom";
 import Text from "./components/Text/Text";
 import designTokens from "./config/designTokens";
-import index from "./index.module.css";
 import LinkImage from "./static/images/logo-uniwire.svg";
 import GlobalStyles from "./components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
@@ -20,7 +19,7 @@ function App() {
 
   const Container = styled.div`
     position: absolute;
-    right: 430px;
+    right: 450px;
     width: 500px;
     height: 150px;
     padding: 20px;
@@ -39,7 +38,7 @@ function App() {
         <Text
           color={designTokens.colors.grey920}
           size={20}
-          family={"Quicksand, sans-serif"}
+          family={"Quicksand-Regular, sans-serif"}
         >
           A Uniwire é uma empresa responsável pela conexão
           clara e eficiente entre quem busca e oferece<br/>

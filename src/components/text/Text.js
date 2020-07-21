@@ -10,10 +10,10 @@ const Text = styled.p`
   line-height: ${(props) => props.height}px;
   text-align: ${(props) => props.align};
   @media screen and (min-width: 640px) {
-    text-align: ${props => props.tabletAlign};
+    text-align: ${(props) => props.tabletAlign};
   }
   @media screen and (min-width: 960px) {
-    text-align: ${props => props.desktopAlign};
+    text-align: ${(props) => props.desktopAlign};
   }
 
   // This props standardizes text types if you don't want to customize
@@ -41,20 +41,20 @@ Text.propTypes = {
         { type: props.type },
         "prop",
         "Componente Text"
-      )
+      );
     } else {
       PropType.checkPropTypes(
         {
           color: PropType.string.isRequired,
-          size: PropType.string.isRequired,
+          size: PropType.number.isRequired,
           family: PropType.string.isRequired,
         },
-        { color: props.color, size: props.size, family: props.family, },
+        { color: props.color, size: props.size, family: props.family },
         "prop",
         "Componente Text"
-      )
+      );
     }
-    return null
+    return null;
   },
   as: PropType.string,
   weight: PropType.string,
@@ -62,8 +62,7 @@ Text.propTypes = {
   height: PropType.number,
   align: PropType.string,
   alignTablet: PropType.string,
-  alignDesktop: PropType.string
+  alignDesktop: PropType.string,
 };
-
 
 export default Text;

@@ -1,10 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import designTokens from "../../config/designTokens";
+import fonts from "../../index.module.css"
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
-
   html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -12,8 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     background-color: ${designTokens.colors.grey050};
-    font-family: Quicksand, Indie-Flower, sans-serif;
-    font-weight: normal;
+    font-family: Quicksand-Regular, Quicksand-Medium, Quicksand-Bold, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,6 +19,5 @@ const GlobalStyles = createGlobalStyle`
     min-height: 0;
   }
 `;
-
 
 export default GlobalStyles;
