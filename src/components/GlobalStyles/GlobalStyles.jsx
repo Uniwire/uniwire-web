@@ -1,8 +1,20 @@
 import { createGlobalStyle } from "styled-components";
 import designTokens from "../../config/designTokens";
-import fonts from "../../index.module.css"
+import fonts from "../../index.module.css";
 
 const GlobalStyles = createGlobalStyle`
+    @font-face {
+      font-family: "Quicksand-Regular";
+      src: url(../../static/fonts/Quicksand-Regular.ttf);
+    }
+    @font-face {
+      font-family: "Quicksand-Medium";
+      src: url(../../static/fonts/Quicksand-Medium.ttf);
+    }
+    @font-face {
+      font-family: "Quicksand-Bold";
+      src: url(../../static/fonts/Quicksand-Bold.ttf);
+    }
   html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
