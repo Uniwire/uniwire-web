@@ -4,16 +4,16 @@ import PropType from "prop-types";
 const Text = styled.p`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}px;
-  font-weigth: ${(props) => props.weight};
+  font-weight: ${(props) => props.weight};
   font-family: ${(props) => props.family};
   text-decoration: ${(props) => props.decoration};
   line-height: ${(props) => props.height}px;
   text-align: ${(props) => props.align};
   @media screen and (min-width: 640px) {
-    text-align: ${props => props.tabletAlign};
+    text-align: ${(props) => props.tabletAlign};
   }
   @media screen and (min-width: 960px) {
-    text-align: ${props => props.desktopAlign};
+    text-align: ${(props) => props.desktopAlign};
   }
 
   // This props standardizes text types if you don't want to customize
@@ -22,7 +22,7 @@ const Text = styled.p`
   ${(props) => {
     switch (props.type) {
       case "default":
-        return "color: red; font-size: 20px; font-family: Futura";
+        return "color: red; font-size: 50px; font-family: Quicksand, sans-serif; font-weight: 100";
       case "default2":
         return "color: green";
       default:
@@ -41,20 +41,20 @@ Text.propTypes = {
         { type: props.type },
         "prop",
         "Componente Text"
-      )
+      );
     } else {
       PropType.checkPropTypes(
         {
           color: PropType.string.isRequired,
-          size: PropType.string.isRequired,
+          size: PropType.number.isRequired,
           family: PropType.string.isRequired,
         },
-        { color: props.color, size: props.size, family: props.family, },
+        { color: props.color, size: props.size, family: props.family },
         "prop",
         "Componente Text"
-      )
+      );
     }
-    return null
+    return null;
   },
   as: PropType.string,
   weight: PropType.string,
@@ -62,8 +62,7 @@ Text.propTypes = {
   height: PropType.number,
   align: PropType.string,
   alignTablet: PropType.string,
-  alignDesktop: PropType.string
+  alignDesktop: PropType.string,
 };
-
 
 export default Text;
