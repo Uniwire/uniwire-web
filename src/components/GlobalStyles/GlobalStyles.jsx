@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import designTokens from "../../config/designTokens";
-
 import QuicksandRegular from "../../static/fonts/Quicksand-Regular.ttf"
 import QuicksandMedium from "../../static/fonts/Quicksand-Medium.ttf"
 import QuicksandBold from "../../static/fonts/Quicksand-Bold.ttf"
@@ -19,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Quicksand-Bold";
     src: url(${QuicksandBold});
   }
+
   html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
