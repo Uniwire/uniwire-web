@@ -38,7 +38,7 @@ function App() {
         <Text
           color={designTokens.colors.grey920}
           size={20}
-          family={"Quicksand-Regular, sans-serif"}
+          family={"Quicksand-Medium, sans-serif"}
         >
           A Uniwire é uma empresa responsável pela conexão
           clara e eficiente entre quem busca e oferece<br/>
