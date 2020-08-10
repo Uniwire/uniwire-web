@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${designTokens.colors.grey050};
+    background-color: ${designTokens.colors.grey025};
     font-family: Quicksand-Regular, Quicksand-Medium, Quicksand-Bold, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;

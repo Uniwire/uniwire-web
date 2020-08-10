@@ -16,9 +16,9 @@ const designTokens = {
   typography: {
     title: {
       family: {
-        light: "Indie-Flower, sans-serif",
-        regular: "Indie-Flower, sans-serif",
-        bold: "Indie-Flower, sans-serif",
+        regular: "Quicksand-Regular, sans-serif",
+        medium: "Quicksand-Medium, sans-serif",
+        bold: "Quicksand-Bold, sans-serif",
       },
       sizes: {
         big: {
@@ -41,9 +41,9 @@ const designTokens = {
     },
     text: {
       family: {
-        light: "Quicksand, sans-serif",
-        regular: "Quicksand, sans-serif",
-        bold: "Quicksand, sans-serif",
+        regular: "Quicksand-Regular, sans-serif",
+        medium: "Quicksand-Medium, sans-serif",
+        bold: "Quicksand-Bold, sans-serif",
       },
       sizes: {
         big: {
@@ -169,8 +169,8 @@ designTokens.propTypes = {
     },
     text: {
       family: {
-        light: PropType.string,
         regular: PropType.string,
+        medium: PropType.string,
         bold: PropType.string,
       },
       size: {
