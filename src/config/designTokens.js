@@ -16,9 +16,9 @@ const designTokens = {
   typography: {
     title: {
       family: {
-        regular: "Quicksand-Regular, sans-serif",
-        medium: "Quicksand-Medium, sans-serif",
-        bold: "Quicksand-Bold, sans-serif",
+        regular: "Quicksand, sans-serif",
+        medium: "Quicksand, sans-serif",
+        bold: "Quicksand, sans-serif",
       },
       sizes: {
         big: {
@@ -41,9 +41,9 @@ const designTokens = {
     },
     text: {
       family: {
-        regular: "Quicksand-Regular, sans-serif",
-        medium: "Quicksand-Medium, sans-serif",
-        bold: "Quicksand-Bold, sans-serif",
+        regular: "Quicksand, sans-serif",
+        medium: "Quicksand, sans-serif",
+        bold: "Quicksand, sans-serif",
       },
       sizes: {
         big: {

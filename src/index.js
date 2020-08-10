@@ -35,7 +35,7 @@ function App() {
         <Image src={LinkImage} width={"400px"} alt="logo uniwire" />
       </View>
       <Container>
-        <Text color={designTokens.colors.grey920} size="big" family="regular">
+        <Text color={designTokens.colors.grey920} size="big">
           A Uniwire é uma empresa responsável pela conexão clara e eficiente
           entre quem busca e oferece
           <br />

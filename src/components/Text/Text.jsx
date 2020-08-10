@@ -5,8 +5,8 @@ import designTokens from "../../config/designTokens";
 const Text = styled.p`
   color: ${(props) => props.color};
   font-size: ${(props) => getFontSize(props.size)}px;
-  font-weight: ${(props) => props.weight};
-  font-family: ${(props) => getFontFamily(props.family)};
+  font-weight: ${(props) => getFontWeight(props.weight)};
+  font-family: ${(props) => getFontFamily(props.weight)};
   text-decoration: ${(props) => props.decoration};
   line-height: ${(props) => getLineHeight(props.size)}px;
   text-align: ${(props) => props.align};
@@ -21,40 +21,33 @@ const Text = styled.p`
 Text.defaultProps = {
   family: "regular" | "medium" | "bold",
   size: "big" | "default" | "small" | "xsmall",
+  weight: "regular" | "medium" | "bold",
 };
 
-const getFontFamily = (family) => designTokens.typography.text.family[family];
+const getFontWeight = (weight) => {
+  switch (weight) {
+    case "bold":
+      return 700;
+    case "medium":
+      return 500;
+    case "regular":
+      return 400;
+    default:
+      return null;
+  }
+};
+
+const getFontFamily = (weight) => designTokens.typography.text.family[weight];
 const getFontSize = (size) => designTokens.typography.text.sizes[size].size;
 const getLineHeight = (size) =>
   designTokens.typography.text.sizes[size].lineHeight;
 
 Text.propTypes = {
-  type: (props) => {
-    if (props.type) {
-      PropType.checkPropTypes(
-        {
-          type: PropType.string.isRequired,
-        },
-        { type: props.type },
-        "prop",
-        "Componente Text"
-      );
-    } else {
-      PropType.checkPropTypes(
-        {
-          color: PropType.string.isRequired,
-          size: PropType.string.isRequired,
-          family: PropType.string.isRequired,
-        },
-        { color: props.color, size: props.size, family: props.family },
-        "prop",
-        "Componente Text"
-      );
-    }
-    return null;
-  },
+  color: PropType.string.isRequired,
+  size: PropType.string.isRequired,
   as: PropType.string,
-  weight: PropType.string,
+  family: PropType.string,
+  weight: PropType.number,
   decoration: PropType.string,
   align: PropType.number,
   alignTablet: PropType.string,
