@@ -1,7 +1,7 @@
 import React from "react";
 import Text from "../components/Text/Text";
 import designTokens from "../config/designTokens";
-import LinkImage from "../static/images/logo-uniwire.svg";
+import LinkImage from "../static/images/logo-uniwire-cinza.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
 
@@ -17,14 +17,13 @@ const NavBar = styled.header`
 `;
 
 const Image = styled.img`
-  width: 150px;
-  @media (min-width: ${designTokens.breakpoints.desktop}px) {
-    width: 400px;
-  }
+  width: 140px;
 `;
 
 const View = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center
 `;
 
 const Container = styled.div`
