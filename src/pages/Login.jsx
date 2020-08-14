@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "../components/Text/Text";
+import PropType from "prop-types";
 import designTokens from "../config/designTokens";
 import LinkImage from "../static/images/logo-uniwire-cinza.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
@@ -23,23 +23,40 @@ const Image = styled.img`
 const View = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 `;
 
-const Container = styled.div`
-  position: absolute;
-  height: auto;
-  padding: 20px;
-  margin-top: 50px;
-  background-color: ${designTokens.colors.yellow400};
-  border-radius: 20px;
-  @media (min-width: ${designTokens.breakpoints.tablet}px) {
-    width: 500px;
+const StyledColumn = styled.div`
+  display: grid;
+  grid-row-gap: ${designTokens.grid.gutter}px;
+  justify-content: center;
+  grid-template-columns: repeat(${designTokens.grid.columns.mobile}, 1fr);
+  @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
+    grid-template-columns: repeat(${designTokens.grid.columns.tablet}, 1fr);
   }
-  @media (min-width: ${designTokens.breakpoints.desktop}px) {
-    width: 500px;
+  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
+    grid-template-columns: repeat(${designTokens.grid.columns.desktop}, 1fr);
   }
 `;
+
+const Column = styled.div`
+  display: ${(props) => (!props.size ? "none" : "block")};
+  grid-column: span ${(props) => props.size};
+  @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
+    display: ${(props) => (!props.tabletSize ? "none" : "block")};
+    grid-column: span ${(props) => props.tabletSize};
+  }
+  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
+    display: ${(props) => (!props.desktopSize ? "none" : "block")};
+    grid-column: span ${(props) => props.desktopSize};
+  }
+`;
+
+Column.propTypes = {
+  size: PropType.number,
+  tabletSize: PropType.number,
+  desktopSize: PropType.number,
+};
 
 function Login() {
   return (
@@ -50,6 +67,10 @@ function Login() {
           <Image src={LinkImage} width={"400px"} alt="logo uniwire" />
         </View>
       </NavBar>
+      <StyledColumn>
+        <Column desktopSize={6} tabletSize={6} size={6}>CAROUSEL</Column>
+        <Column desktopSize={6} tabletSize={6} size={6}>LOGIN</Column>
+      </StyledColumn>
     </>
   );
 }
