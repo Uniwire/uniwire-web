@@ -4,6 +4,7 @@ import designTokens from "../config/designTokens";
 import LinkImage from "../static/images/logo-uniwire-cinza.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
+import Input from "../components/Input/Input";
 
 const NavBar = styled.header`
   width: 100%;
@@ -39,15 +40,21 @@ const StyledColumn = styled.div`
   }
 `;
 
+const Container = styled.div`
+  margin: 0 10px;
+`;
+
 const Column = styled.div`
-  display: ${(props) => (!props.size ? "none" : "block")};
+  display: ${(props) => (!props.size ? "none" : "flex")};
   grid-column: span ${(props) => props.size};
+  justify-content: center;
+  align-items: center;
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
-    display: ${(props) => (!props.tabletSize ? "none" : "block")};
+    display: ${(props) => (!props.tabletSize ? "none" : "flex")};
     grid-column: span ${(props) => props.tabletSize};
   }
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    display: ${(props) => (!props.desktopSize ? "none" : "block")};
+    display: ${(props) => (!props.desktopSize ? "none" : "flex")};
     grid-column: span ${(props) => props.desktopSize};
   }
 `;
@@ -67,10 +74,16 @@ function Login() {
           <Image src={LinkImage} width={"400px"} alt="logo uniwire" />
         </View>
       </NavBar>
-      <StyledColumn>
-        <Column desktopSize={6} tabletSize={6} size={6}>CAROUSEL</Column>
-        <Column desktopSize={6} tabletSize={6} size={6}>LOGIN</Column>
-      </StyledColumn>
+      <Container>
+        <StyledColumn>
+          <Column desktopSize={6} tabletSize={6} size={6}>
+            CAROUSEL
+          </Column>
+          <Column desktopSize={6} tabletSize={12} size={12}>
+            <Input widthDesktop={400} type="text" placeholder="Email" />
+          </Column>
+        </StyledColumn>
+      </Container>
     </>
   );
 }
