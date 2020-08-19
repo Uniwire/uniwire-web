@@ -1,25 +1,11 @@
 import React from "react";
 import PropType from "prop-types";
 import designTokens from "../config/designTokens";
-import LinkImage from "../static/images/logo-uniwire-cinza.svg";
+import LogoImage from "../static/images/logo-preto.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
-
-const NavBar = styled.header`
-  width: 100%;
-  height: 60px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: ${designTokens.colors.yellow700};
-  border-radius: 0 0 30px 30px;
-  box-shadow: ${designTokens.shadows.default.idle};
-`;
-
-const Image = styled.img`
-  width: 140px;
-`;
+import Title from "../components/Title/Title";
 
 const View = styled.div`
   display: flex;
@@ -49,13 +35,15 @@ const Column = styled.div`
   grid-column: span ${(props) => props.size};
   justify-content: center;
   align-items: center;
+
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
     display: ${(props) => (!props.tabletSize ? "none" : "flex")};
-    grid-column: span ${(props) => props.tabletSize};
+    grid-column: span ${(props) => props.tabletSize || props.size};
   }
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     display: ${(props) => (!props.desktopSize ? "none" : "flex")};
-    grid-column: span ${(props) => props.desktopSize};
+    grid-column: span
+      ${(props) => props.desktopSize || props.tabletSize || props.size};
   }
 `;
 
@@ -68,12 +56,17 @@ Column.propTypes = {
 function Login() {
   return (
     <>
-      <GlobalStyles />
-      <NavBar>
-        <View>
-          <Image src={LinkImage} width={"400px"} alt="logo uniwire" />
-        </View>
-      </NavBar>
+      <GlobalStyles background={designTokens.colors.orange850} />
+      <View>
+        <Title
+          color={designTokens.colors.black100}
+          weight="regular"
+          size="default"
+        >
+          Uniwire
+        </Title>
+        <img src={LogoImage} width={"100"} alt="logo uniwire" />
+      </View>
       <Container>
         <StyledColumn>
           <Column desktopSize={6} tabletSize={6} size={6}>

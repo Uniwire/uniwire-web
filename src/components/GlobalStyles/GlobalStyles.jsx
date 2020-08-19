@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${designTokens.colors.grey025};
+    background-color: ${(props) => props.background ? props.background : designTokens.colors.grey025};
     font-family: Quicksand, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;

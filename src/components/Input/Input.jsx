@@ -1,4 +1,3 @@
-import PropType from "prop-types";
 import styled from "styled-components";
 import designTokens from "../../config/designTokens";
 
@@ -31,10 +30,5 @@ const Input = styled.input`
     bottom: 0;
   }
 `;
-
-Input.propTypes = {
-  width: PropType.number.isRequired,
-  widthDesktop: PropType.number.isRequired,
-};
 
 export default Input
