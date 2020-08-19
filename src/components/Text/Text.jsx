@@ -1,66 +1,55 @@
 import styled from "styled-components";
 import PropType from "prop-types";
+import designTokens from "../../config/designTokens";
 
 const Text = styled.p`
   color: ${(props) => props.color};
-  font-size: ${(props) => props.size}px;
-  font-weight: ${(props) => props.weight};
-  font-family: ${(props) => props.family};
+  font-size: ${(props) => getFontSize(props.size)}px;
+  font-weight: ${(props) => getFontWeight(props.weight)};
+  font-family: ${(props) => getFontFamily(props.weight)};
   text-decoration: ${(props) => props.decoration};
-  line-height: ${(props) => props.height}px;
+  line-height: ${(props) => getLineHeight(props.size)}px;
   text-align: ${(props) => props.align};
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
     text-align: ${(props) => props.tabletAlign};
   }
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     text-align: ${(props) => props.desktopAlign};
   }
-
-  // This props standardizes text types if you don't want to customize
-  // and choose one already assembled. It is not yet configured with the
-  // right styles, other components need to be implemented first.
-  ${(props) => {
-    switch (props.type) {
-      case "default":
-        return "color: red; font-size: 50px; font-family: Quicksand, sans-serif; font-weight: 100";
-      case "default2":
-        return "color: green";
-      default:
-        return;
-    }
-  }}
 `;
 
+Text.defaultProps = {
+  family: "regular" | "medium" | "bold",
+  size: "big" | "default" | "small" | "xsmall",
+  weight: "regular" | "medium" | "bold",
+};
+
+const getFontWeight = (weight) => {
+  switch (weight) {
+    case "bold":
+      return 700;
+    case "medium":
+      return 500;
+    case "regular":
+      return 400;
+    default:
+      return null;
+  }
+};
+
+const getFontFamily = (weight) => designTokens.typography.text.family[weight];
+const getFontSize = (size) => designTokens.typography.text.sizes[size].size;
+const getLineHeight = (size) =>
+  designTokens.typography.text.sizes[size].lineHeight;
+
 Text.propTypes = {
-  type: (props) => {
-    if (props.type) {
-      PropType.checkPropTypes(
-        {
-          type: PropType.string.isRequired,
-        },
-        { type: props.type },
-        "prop",
-        "Componente Text"
-      );
-    } else {
-      PropType.checkPropTypes(
-        {
-          color: PropType.string.isRequired,
-          size: PropType.number.isRequired,
-          family: PropType.string.isRequired,
-        },
-        { color: props.color, size: props.size, family: props.family },
-        "prop",
-        "Componente Text"
-      );
-    }
-    return null;
-  },
+  color: PropType.string.isRequired,
+  size: PropType.string.isRequired,
   as: PropType.string,
-  weight: PropType.string,
+  family: PropType.string,
+  weight: PropType.number,
   decoration: PropType.string,
-  height: PropType.number,
-  align: PropType.string,
+  align: PropType.number,
   alignTablet: PropType.string,
   alignDesktop: PropType.string,
 };
