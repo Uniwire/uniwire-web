@@ -4,8 +4,7 @@ import designTokens from "../../config/designTokens";
 const Input = styled.input`
   width: 230px;
   height: 3.2rem;
-  margin-top: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   border-radius: 0.8rem;
   background-color: ${designTokens.colors.orange050};
   border: 1px solid ${designTokens.colors.yellow200};
@@ -19,7 +18,6 @@ const Input = styled.input`
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     width: 400px;
   }
-
 `;
 
-export default Input
+export default Input;

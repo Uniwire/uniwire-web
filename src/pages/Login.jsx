@@ -2,8 +2,9 @@ import React from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-preto.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Input from "../components/Input/Input";
+import { ButtonPrimary } from "../components/Button/Button"
 import Title from "../components/Title/Title";
 import { StyledColumn, Column } from "../components/Grid/Grid";
 
@@ -23,81 +24,6 @@ const Container = styled.div`
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     width: 500px;
     border-radius: 8px;
-  }
-`;
-
-const commonStyles = css`
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  font-family: ${designTokens.typography.text.family.bold};
-  font-weight: bold;
-  font-size: ${designTokens.typography.text.sizes.xsmall.size}px;
-  line-height: ${designTokens.typography.text.sizes.xsmall.lineHeight}px;
-  letter-spacing: 1px;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 24px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.15s ease-in-out;
-
-  &:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 28px;
-    border: 2px solid transparent;
-    transition: border-color 0.15s ease-in-out;
-  }
-
-  &:hover,
-  &:focus {
-    transition: background-color 0s;
-  }
-  &:active {
-    transition: background-color 0s;
-  }
-  &:focus {
-    outline: none;
-    overflow: visible;
-  }
-`;
-
-const Button = styled.button`
-  ${commonStyles}
-  width: 100px;
-  line-height: ${(props) => (props.small ? 32 : 48)}px;
-  background-color: ${designTokens.colors.orange600};
-  color: ${designTokens.colors.grey900};
-  padding: 0
-
-  &:hover,
-  &:focus {
-    background-color: ${designTokens.colors.orange400};
-  }
-  &:active {
-    background-color: ${designTokens.colors.orange600};
-  }
-  &:focus:after {
-    border-color: ${designTokens.colors.purple800};
-  }
-  &[disabled] {
-    pointer-events: none;
-    background-color: ${designTokens.colors.grey100};
-    color: ${designTokens.colors.grey400};
-  }
-
-  @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
-    padding: 0;
-  }
-  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    padding: 0
   }
 `;
 
@@ -122,12 +48,19 @@ function Login() {
         <Column desktopSize={6} tabletSize={12} size={12}>
           <Container>
             <View>
+              <Title size="small" color={designTokens.colors.grey900}>
+                Já é cadastrado?
+              </Title>
+            </View>
+            <View>
               <Input widthDesktop={400} type="text" placeholder="Email" />
             </View>
             <View>
               <Input widthDesktop={400} type="text" placeholder="Senha" />
             </View>
-            <Button>Entrar</Button>
+            <View>
+              <ButtonPrimary disabled >Entrar</ButtonPrimary>
+            </View>
           </Container>
         </Column>
       </StyledColumn>
