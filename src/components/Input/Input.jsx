@@ -10,7 +10,7 @@ const Input = styled.input`
   border: 1px solid ${designTokens.colors.yellow200};
   outline: 0;
   padding: 0 1.6rem;
-  font: 1.2rem Poppins;
+  font: 1rem Poppins;
 
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
     width: 424px;

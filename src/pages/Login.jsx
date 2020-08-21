@@ -4,9 +4,10 @@ import LogoImage from "../static/images/logo-preto.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
-import { ButtonPrimary } from "../components/Button/Button"
+import { ButtonPrimary } from "../components/Button/Button";
 import Title from "../components/Title/Title";
 import { StyledColumn, Column } from "../components/Grid/Grid";
+import { useForm } from "react-hook-form";
 
 const View = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Container = styled.div`
   background: ${designTokens.colors.grey000};
   width: 100%;
   height: 300px;
-  padding: 15px;
+  padding: 15px 15px 30px 15px;
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     width: 500px;
@@ -28,6 +29,12 @@ const Container = styled.div`
 `;
 
 function Login() {
+  const { register, handleSubmit, errors } = useForm();
+
+  function onSubmit(data) {
+    console.log("Data submitted: ", data);
+  }
+
   return (
     <>
       <GlobalStyles background={designTokens.colors.orange850} />
@@ -47,20 +54,47 @@ function Login() {
         </Column>
         <Column desktopSize={6} tabletSize={12} size={12}>
           <Container>
-            <View>
-              <Title size="small" color={designTokens.colors.grey900}>
-                Já é cadastrado?
-              </Title>
-            </View>
-            <View>
-              <Input widthDesktop={400} type="text" placeholder="Email" />
-            </View>
-            <View>
-              <Input widthDesktop={400} type="text" placeholder="Senha" />
-            </View>
-            <View>
-              <ButtonPrimary disabled >Entrar</ButtonPrimary>
-            </View>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <View>
+                <Title size="small" color={designTokens.colors.grey900}>
+                  Já é cadastrado?
+                </Title>
+              </View>
+              <View>
+                <Input
+                  widthDesktop={400}
+                  type="email"
+                  name="email"
+                  id="inputEmail"
+                  placeholder="Email"
+                  ref={register({
+                    required: "Enter your e-mail",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                      message: "Enter a valid e-mail address",
+                    },
+                  })}
+                />
+              </View>
+              <View>
+                {errors.email && (
+                  <small className="error">{errors.email.message}</small>
+                )}
+              </View>
+              <View>
+                <Input
+                  widthDesktop={400}
+                  type="password"
+                  name="senha"
+                  id="inputSenha"
+                  placeholder="Senha"
+                  ref={register()}
+                />
+              </View>
+              <View>
+                <ButtonPrimary>Entrar</ButtonPrimary>
+              </View>
+            </form>
           </Container>
         </Column>
       </StyledColumn>
