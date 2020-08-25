@@ -6,20 +6,15 @@ import styled from "styled-components";
 import Input from "../components/Input/Input";
 import { ButtonPrimary } from "../components/Button/Button";
 import Title from "../components/Title/Title";
+import View from "../components/View/View";
+import { Small } from "../components/Text/Text";
 import { StyledColumn, Column } from "../components/Grid/Grid";
 import { useForm } from "react-hook-form";
-
-const View = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
 
 const Container = styled.div`
   background: ${designTokens.colors.grey000};
   width: 100%;
-  height: 300px;
+  height: auto;
   padding: 15px 15px 30px 15px;
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
@@ -62,37 +57,50 @@ function Login() {
               </View>
               <View>
                 <Input
+                  withoutMarginTop
+                  autocomplete="off"
                   widthDesktop={400}
                   type="email"
                   name="email"
                   id="inputEmail"
                   placeholder="Email"
                   ref={register({
-                    required: "Enter your e-mail",
+                    required: "Preencha o campo email",
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: "Enter a valid e-mail address",
+                      message: "Preencha com um email válido",
                     },
                   })}
                 />
               </View>
-              <View>
+              <View justify="left" left={5}>
                 {errors.email && (
-                  <small className="error">{errors.email.message}</small>
+                  <Small className="error">{errors.email.message}</Small>
                 )}
               </View>
               <View>
                 <Input
                   widthDesktop={400}
                   type="password"
-                  name="senha"
+                  name="password"
                   id="inputSenha"
                   placeholder="Senha"
-                  ref={register()}
+                  ref={register({
+                    required: "Preencha o campo senha",
+                    pattern: {
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      message: "Preencha com uma senha válida",
+                    },
+                  })}
                 />
               </View>
+              <View justify="left" left={5}>
+                {errors.password && (
+                  <Small className="error">{errors.password.message}</Small>
+                )}
+              </View>
               <View>
-                <ButtonPrimary>Entrar</ButtonPrimary>
+                <ButtonPrimary withoutMarginTop>Entrar</ButtonPrimary>
               </View>
             </form>
           </Container>

@@ -4,7 +4,7 @@ import designTokens from "../../config/designTokens";
 const Input = styled.input`
   width: 230px;
   height: 3.2rem;
-  margin-bottom: 2rem;
+  margin-top: ${props => props.withoutMarginTop ? "0" : "2rem"};
   border-radius: 0.8rem;
   background-color: ${designTokens.colors.orange050};
   border: 1px solid ${designTokens.colors.yellow200};

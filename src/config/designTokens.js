@@ -2,7 +2,7 @@ import PropType from "prop-types";
 
 const designTokens = {
   grid: {
-    gutter: 1,
+    gutter: 16,
     columns: {
       mobile: 4,
       tablet: 8,

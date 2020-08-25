@@ -22,6 +22,11 @@ const Text = styled.p`
   }
 `;
 
+export const Small = styled.small`
+  color: red;
+  margin-top: 5px;
+`;
+
 Text.defaultProps = {
   family: "regular" | "medium" | "bold",
   size: "big" | "default" | "small" | "xsmall",
