@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-preto.svg";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
@@ -25,9 +25,27 @@ const Container = styled.div`
 
 function Login() {
   const { register, handleSubmit, errors } = useForm();
+  const [session, setSession] = useState({ message: null });
 
   function onSubmit(data) {
-    console.log("Data submitted: ", data);
+    const url = data.password === '123123' ? 'https://demo3107275.mockable.io/login' : ' https://demo3107275.mockable.io/failed-login'
+
+    fetch(
+      url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        })
+      }
+    ).then((response) => {
+      if (response.status === 401) {
+        setSession({ message: 'Login ou senha incorretos' })
+      } else if (response.status === 200) {
+        setSession({ message: '' })
+      }
+    });
   }
 
   return (
@@ -86,17 +104,22 @@ function Login() {
                   id="inputSenha"
                   placeholder="Senha"
                   ref={register({
-                    required: "Preencha o campo senha",
-                    pattern: {
-                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                      message: "Preencha com uma senha válida",
-                    },
+                    // required: "Preencha o campo senha",
+                    // pattern: {
+                    //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    //   message: "Preencha com uma senha válida",
+                    // },
                   })}
                 />
               </View>
               <View justify="left" left={5}>
                 {errors.password && (
                   <Small className="error">{errors.password.message}</Small>
+                )}
+              </View>
+              <View justify="left" left={5}>
+                {session.message && (
+                  <Small className="error">{session.message}</Small>
                 )}
               </View>
               <View>
