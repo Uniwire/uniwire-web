@@ -91,7 +91,7 @@ function Login() {
                   })}
                 />
               </View>
-              <View justify="left" left={5}>
+              <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
                 {errors.email && (
                   <Small className="error">{errors.email.message}</Small>
                 )}
@@ -104,7 +104,7 @@ function Login() {
                   id="inputSenha"
                   placeholder="Senha"
                   ref={register({
-                    // required: "Preencha o campo senha",
+                    required: "Preencha o campo senha",
                     // pattern: {
                     //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                     //   message: "Preencha com uma senha válida",
@@ -112,7 +112,7 @@ function Login() {
                   })}
                 />
               </View>
-              <View justify="left" left={5}>
+              <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
                 {errors.password && (
                   <Small className="error">{errors.password.message}</Small>
                 )}

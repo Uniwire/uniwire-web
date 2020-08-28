@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import designTokens from "../../config/designTokens";
+import PropType from "prop-types"
 
 const Input = styled.input`
   width: 230px;
@@ -19,5 +20,9 @@ const Input = styled.input`
     width: 400px;
   }
 `;
+
+Input.propTypes = {
+  withoutMarginTop: PropType.boolean,
+}
 
 export default Input;

@@ -53,7 +53,7 @@ export const ButtonPrimary = styled.button`
   background-color: ${designTokens.colors.yellow700};
   color: ${designTokens.colors.grey900};
   padding: 0;
-  margin-top: ${props => props.withoutMarginTop ? "2rem" : "0"};
+  margin-top: ${(props) => (props.withoutMarginTop ? "2rem" : "0")};
 
   &:hover,
   &:focus {
@@ -82,4 +82,5 @@ export const ButtonPrimary = styled.button`
 ButtonPrimary.propTypes = {
   width: PropType.number,
   height: PropType.number,
-}
+  withoutMarginTop: PropType.boolean,
+};

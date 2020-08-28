@@ -1,3 +1,4 @@
+import React from "react";
 import PropType from "prop-types";
 import designTokens from "../../config/designTokens";
 import styled from "styled-components";
@@ -16,25 +17,41 @@ export const StyledColumn = styled.div`
   }
 `;
 
-export const Column = styled.div`
-  display: ${(props) => (!props.size ? "none" : "flex")};
+export const ColumnContainer = styled.div`
+  display: ${(props) => (!props.size ? "none" : "block")};
   grid-column: span ${(props) => props.size};
-  justify-content: center;
-  align-items: center;
 
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
-    display: ${(props) => (!props.tabletSize ? "none" : "flex")};
+    display: ${(props) => (!props.tabletSize ? "none" : "block")};
     grid-column: span ${(props) => props.tabletSize || props.size};
   }
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    display: ${(props) => (!props.desktopSize ? "none" : "flex")};
+    display: ${(props) => (!props.desktopSize ? "none" : "block")};
     grid-column: span
       ${(props) => props.desktopSize || props.tabletSize || props.size};
   }
 `;
 
-Column.propTypes = {
+ColumnContainer.propTypes = {
   size: PropType.number,
   tabletSize: PropType.number,
   desktopSize: PropType.number,
 };
+
+// Column.propTypes = {
+//   alignVerticalCenter: PropType.boolean,
+//   tabletAlignVerticalCenter: PropType.boolean,
+//   desktopAlignVerticalCenter: PropType.boolean,
+//   hidden: PropType.boolean,
+//   tabletHidden: PropType.boolean,
+//   desktopHidden: PropType.boolean,
+//   center: PropType.boolean,
+//   tabletCenter: PropType.boolean,
+//   desktopCenter: PropType.boolean,
+//   offset: PropType.number,
+//   tabletOffset: PropType.number,
+//   desktopOffset: PropType.number,
+//   push: PropType.number,
+//   tabletPush: PropType.number,
+//   desktopPush: PropType.number,
+// };
