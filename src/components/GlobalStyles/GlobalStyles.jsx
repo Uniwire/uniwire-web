@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import designTokens from "../../config/designTokens";
 
+
 const GlobalStyles = createGlobalStyle`
   html {
     font-family: sans-serif;
@@ -8,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${(props) => props.background ? props.background : designTokens.colors.grey025};
+    background-color: ${designTokens.colors.grey025};
     font-family: Quicksand, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;

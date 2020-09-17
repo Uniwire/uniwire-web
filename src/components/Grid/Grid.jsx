@@ -1,4 +1,3 @@
-import React from "react";
 import PropType from "prop-types";
 import designTokens from "../../config/designTokens";
 import styled from "styled-components";

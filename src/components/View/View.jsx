@@ -6,7 +6,7 @@ const View = styled.div`
   display: flex;
   justify-content: ${(props) => (props.justify ? props.justify : "center")};
   align-items: center;
-  flex-direction: row;
+  flex-direction: ${(props) => props.row || props.column ? "row" || "column" : "row"};
   position: relative;
   left: ${(props) => (props.left ? props.left : "0")}px;
 
@@ -22,6 +22,8 @@ const View = styled.div`
 View.propTypes = {
   justify: PropType.string,
   left: PropType.number,
+  row: PropType.boolean,
+  column: PropType.boolean,
 };
 
 export default View;

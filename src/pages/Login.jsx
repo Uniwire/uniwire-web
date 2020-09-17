@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-preto.svg";
-import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
 import { ButtonPrimary } from "../components/Button/Button";
 import Title from "../components/Title/Title";
 import View from "../components/View/View";
 import { Small } from "../components/Text/Text";
-import { StyledColumn, Column } from "../components/Grid/Grid";
 import { useForm } from "react-hook-form";
 
 const Container = styled.div`
-  background: ${designTokens.colors.grey000};
+  background-color: ${designTokens.colors.grey000};
   width: 100%;
   height: auto;
   padding: 15px 15px 30px 15px;
@@ -28,29 +26,29 @@ function Login() {
   const [session, setSession] = useState({ message: null });
 
   function onSubmit(data) {
-    const url = data.password === '123123' ? 'https://demo3107275.mockable.io/login' : ' https://demo3107275.mockable.io/failed-login'
+    const url =
+      data.password === "123123"
+        ? "https://demo3107275.mockable.io/login"
+        : " https://demo3107275.mockable.io/failed-login";
 
-    fetch(
-      url, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: new Headers({
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        })
-      }
-    ).then((response) => {
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+    }).then((response) => {
       if (response.status === 401) {
-        setSession({ message: 'Login ou senha incorretos' })
+        setSession({ message: "Login ou senha incorretos" });
       } else if (response.status === 200) {
-        setSession({ message: '' })
+        setSession({ message: "" });
       }
     });
   }
 
   return (
     <>
-      <GlobalStyles background={designTokens.colors.orange850} />
       <View>
         <Title
           color={designTokens.colors.black100}
@@ -61,74 +59,69 @@ function Login() {
         </Title>
         <img src={LogoImage} width={"100"} alt="logo uniwire" />
       </View>
-      <StyledColumn>
-        <Column desktopSize={6} tabletSize={6} size={6}>
-          CAROUSEL
-        </Column>
-        <Column desktopSize={6} tabletSize={12} size={12}>
-          <Container>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <View>
-                <Title size="small" color={designTokens.colors.grey900}>
-                  Já é cadastrado?
-                </Title>
-              </View>
-              <View>
-                <Input
-                  withoutMarginTop
-                  autocomplete="off"
-                  widthDesktop={400}
-                  type="email"
-                  name="email"
-                  id="inputEmail"
-                  placeholder="Email"
-                  ref={register({
-                    required: "Preencha o campo email",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: "Preencha com um email válido",
-                    },
-                  })}
-                />
-              </View>
-              <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
-                {errors.email && (
-                  <Small className="error">{errors.email.message}</Small>
-                )}
-              </View>
-              <View>
-                <Input
-                  widthDesktop={400}
-                  type="password"
-                  name="password"
-                  id="inputSenha"
-                  placeholder="Senha"
-                  ref={register({
-                    required: "Preencha o campo senha",
-                    // pattern: {
-                    //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                    //   message: "Preencha com uma senha válida",
-                    // },
-                  })}
-                />
-              </View>
-              <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
-                {errors.password && (
-                  <Small className="error">{errors.password.message}</Small>
-                )}
-              </View>
-              <View justify="left" left={5}>
-                {session.message && (
-                  <Small className="error">{session.message}</Small>
-                )}
-              </View>
-              <View>
-                <ButtonPrimary withoutMarginTop>Entrar</ButtonPrimary>
-              </View>
-            </form>
-          </Container>
-        </Column>
-      </StyledColumn>
+      <View column>
+        <Container>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <View>
+              <Title size="small" color={designTokens.colors.grey900}>
+                Já é cadastrado?
+              </Title>
+            </View>
+            <View>
+              <Input
+                withoutMarginTop
+                autocomplete="off"
+                widthDesktop={400}
+                type="email"
+                name="email"
+                id="inputEmail"
+                placeholder="Email"
+                ref={register({
+                  required: "Preencha o campo email",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "Preencha com um email válido",
+                  },
+                })}
+              />
+            </View>
+            <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
+              {errors.email && (
+                <Small className="error">{errors.email.message}</Small>
+              )}
+            </View>
+            <View>
+              <Input
+                widthDesktop={400}
+                type="password"
+                name="password"
+                id="inputSenha"
+                placeholder="Senha"
+                ref={register({
+                  required: "Preencha o campo senha",
+                  // pattern: {
+                  //   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  //   message: "Preencha com uma senha válida",
+                  // },
+                })}
+              />
+            </View>
+            <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
+              {errors.password && (
+                <Small className="error">{errors.password.message}</Small>
+              )}
+            </View>
+            <View justify="left" left={5}>
+              {session.message && (
+                <Small className="error">{session.message}</Small>
+              )}
+            </View>
+            <View>
+              <ButtonPrimary withoutMarginTop>Entrar</ButtonPrimary>
+            </View>
+          </form>
+        </Container>
+      </View>
     </>
   );
 }
