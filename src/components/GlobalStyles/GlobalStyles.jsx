@@ -1,6 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import designTokens from "../../config/designTokens";
-
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -9,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${designTokens.colors.grey025};
     font-family: Quicksand, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;

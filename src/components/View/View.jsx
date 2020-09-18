@@ -19,6 +19,8 @@ const View = styled.div`
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
     left: ${(props) => (props.desktopLeft ? props.desktopLeft : "0")}px;
+    padding-left: ${(props) => (props.desktopPaddingLeft ? props.desktopPaddingLeft : "0")}px;
+    padding-top: ${(props) => (props.desktopPaddingTop ? props.desktopPaddingTop : "0")}px;
   }
 `;
 
@@ -30,6 +32,8 @@ View.propTypes = {
   marginBottom: PropType.number,
   tabletLeft: PropType.number,
   desktopLeft: PropType.number,
+  desktopPaddingLeft: PropType.number,
+  desktopPaddingTop: PropType.number
 };
 
 export default View;

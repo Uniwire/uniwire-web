@@ -14,7 +14,7 @@ const commonStyles = css`
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 24px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   transition: background-color 0.15s ease-in-out;
@@ -47,8 +47,8 @@ const commonStyles = css`
 
 export const ButtonPrimary = styled.button`
   ${commonStyles}
-  width: ${(props) => (props.width ? props.width : "100")}px;
-  height: ${(props) => (props.width ? props.width : "50")}px;
+  width: ${(props) => (props.width ? props.width : "100")}%;
+  height: ${(props) => (props.width ? props.width : "45")}px;
   line-height: 32px;
   background-color: ${designTokens.colors.yellow700};
   color: ${designTokens.colors.grey900};

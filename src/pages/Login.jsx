@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-preto.svg";
+import WorldLogin from "../static/images/world-login.svg";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
 import { ButtonPrimary } from "../components/Button/Button";
@@ -14,11 +15,11 @@ const Container = styled.div`
   background: ${designTokens.colors.grey000};
   width: 100%;
   height: auto;
-  padding: 15px 15px 30px 15px;
+  padding: 10px 40px 50px 40px;
   box-shadow: ${designTokens.shadows.dark.idle};
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    width: 500px;
+    width: 450px;
     border-radius: 8px;
   }
 `;
@@ -51,27 +52,38 @@ function Login() {
 
   return (
     <>
-      <View justify="left" desktopLeft="30" marginBottom="60">
-        <Title
-          color={designTokens.colors.black100}
-          weight="regular"
-          size="default"
-        >
-          uniwire
+      <View
+        justify="left"
+        desktopPaddingLeft={30}
+        desktopPaddingTop={20}
+        marginBottom="30"
+      >
+        <Title size="small" color={designTokens.colors.grey900}>
+          Uniwire
         </Title>
         <img src={LogoImage} width={"70"} alt="logo uniwire" />
       </View>
       <StyledColumn>
         <ColumnContainer desktopSize={6} tabletSize={6} size={6}>
-          
+          <View>
+            <img
+              src={WorldLogin}
+              width={"500"}
+              alt="localização no globo terrestre"
+            />
+          </View>
         </ColumnContainer>
         <ColumnContainer desktopSize={6} tabletSize={12} size={12}>
           <View>
             <Container>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <View>
-                  <Title size="small" color={designTokens.colors.grey900}>
-                    Já é cadastrado?
+                  <Title
+                    size="small"
+                    align="center"
+                    color={designTokens.colors.grey900}
+                  >
+                    Comece a conectar sua universidade!
                   </Title>
                 </View>
                 <View>
