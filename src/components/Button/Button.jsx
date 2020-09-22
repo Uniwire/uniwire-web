@@ -57,13 +57,13 @@ export const ButtonPrimary = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${designTokens.colors.orange300};
+    background-color: ${designTokens.colors.yellow300};
   }
   &:active {
-    background-color: ${designTokens.colors.orange600};
+    background-color: ${designTokens.colors.yellow300};
   }
   &:focus:after {
-    border-color: ${designTokens.colors.orange850};
+    border-color: ${designTokens.colors.orange500};
   }
   &[disabled] {
     pointer-events: none;

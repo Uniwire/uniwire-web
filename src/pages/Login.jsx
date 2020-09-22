@@ -88,7 +88,7 @@ function Login() {
                 </View>
                 <View>
                   <Input
-                    withoutMarginTop
+                    withoutMarginTop={true}
                     autocomplete="off"
                     widthDesktop={400}
                     type="email"
@@ -136,7 +136,9 @@ function Login() {
                   )}
                 </View>
                 <View>
-                  <ButtonPrimary withoutMarginTop>Entrar</ButtonPrimary>
+                  <ButtonPrimary withoutMarginTop={true} disable>
+                    Entrar
+                  </ButtonPrimary>
                 </View>
               </form>
             </Container>
