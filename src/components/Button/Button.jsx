@@ -48,7 +48,7 @@ const commonStyles = css`
 export const ButtonPrimary = styled.button`
   ${commonStyles}
   width: ${(props) => (props.width ? props.width : "100")}%;
-  height: ${(props) => (props.width ? props.width : "45")}px;
+  height: ${(props) => (props.heigth ? props.heigth : "45")}px;
   line-height: 32px;
   background-color: ${designTokens.colors.yellow700};
   color: ${designTokens.colors.grey900};
