@@ -14,7 +14,7 @@ const Input = styled.input`
 `;
 
 Input.propTypes = {
-  withoutMarginTop: PropType.boolean,
+  withoutMarginTop: PropType.bool,
 };
 
 export default Input;

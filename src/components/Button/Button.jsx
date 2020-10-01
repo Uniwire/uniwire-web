@@ -128,7 +128,7 @@ export const InvisibleButton = styled.button`
 ButtonPrimary.propTypes = {
   width: PropType.number,
   height: PropType.number,
-  withoutMarginTop: PropType.boolean,
+  withoutMarginTop: PropType.bool,
 };
 
 InvisibleButton.propTypes = {
