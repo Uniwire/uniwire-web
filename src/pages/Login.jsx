@@ -4,18 +4,19 @@ import LogoImage from "../static/images/logo-preto.svg";
 import WorldLogin from "../static/images/world-login.svg";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
-import { ButtonPrimary } from "../components/Button/Button";
+import { ButtonPrimary, InvisibleButton } from "../components/Button/Button";
 import Title from "../components/Title/Title";
 import View from "../components/View/View";
 import { Small } from "../components/Text/Text";
 import { StyledColumn, ColumnContainer } from "../components/Grid/Grid";
 import { useForm } from "react-hook-form";
+import Image from "../components/Image/Image";
 
 const Container = styled.div`
   background: ${designTokens.colors.grey000};
   width: 100%;
   height: auto;
-  padding: 10px 40px 50px 40px;
+  padding: 10px 40px 35px 40px;
   box-shadow: ${designTokens.shadows.dark.idle};
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
@@ -53,22 +54,30 @@ function Login() {
   return (
     <>
       <View
-        justify="left"
+        justify="center"
+        desktopJustify="left"
         desktopPaddingLeft={30}
+        paddingTop={20}
         desktopPaddingTop={20}
-        marginBottom="30"
+        marginBottom={30}
       >
         <Title size="small" color={designTokens.colors.grey900}>
           Uniwire
         </Title>
-        <img src={LogoImage} width={"70"} alt="logo uniwire" />
+        <Image
+          src={LogoImage}
+          width={40}
+          desktopWidth={70}
+          alt="logo uniwire"
+        />
       </View>
       <StyledColumn>
         <ColumnContainer desktopSize={6} tabletSize={6} size={6}>
           <View>
-            <img
+            <Image
               src={WorldLogin}
-              width={"500"}
+              width={300}
+              desktopWidth={500}
               alt="localização no globo terrestre"
             />
           </View>
@@ -141,6 +150,9 @@ function Login() {
                   </ButtonPrimary>
                 </View>
               </form>
+              <View paddingTop={20} desktopPaddingTop={20}>
+                <InvisibleButton color={"light"}>Cadastre-se</InvisibleButton>
+              </View>
             </Container>
           </View>
         </ColumnContainer>

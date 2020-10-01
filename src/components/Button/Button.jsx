@@ -75,7 +75,53 @@ export const ButtonPrimary = styled.button`
     padding: 0;
   }
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    padding: 0
+    padding: 0;
+  }
+`;
+
+export const InvisibleButton = styled.button`
+  ${commonStyles};
+  padding: 0;
+  background-color: transparent;
+  color: ${(props) =>
+    props.yellow
+      ? designTokens.colors.yellow700
+      : props.orange
+      ? designTokens.colors.orange900
+      : designTokens.colors.grey900};
+  line-height: 48px;
+  text-decoration: underline;
+
+  &:after {
+    top: 4px;
+    left: -6px;
+    right: -6px;
+    bottom: 4px;
+  }
+
+  &:hover,
+  &:focus {
+    color: ${(props) =>
+      props.light
+        ? designTokens.colors.grey100
+        : props.dark
+        ? designTokens.colors.grey800
+        : designTokens.colors.purple800};
+  }
+  &:active {
+    color: ${(props) =>
+      props.light
+        ? designTokens.colors.grey000
+        : props.dark
+        ? designTokens.colors.grey900
+        : designTokens.colors.purple900};
+  }
+  &:focus:after {
+    border-color: ${designTokens.colors.purple800};
+  }
+  &[disabled] {
+    pointer-events: none;
+    color: ${designTokens.colors.grey100};
   }
 `;
 
@@ -83,4 +129,8 @@ ButtonPrimary.propTypes = {
   width: PropType.number,
   height: PropType.number,
   withoutMarginTop: PropType.boolean,
+};
+
+InvisibleButton.propTypes = {
+  light: PropType.string,
 };
