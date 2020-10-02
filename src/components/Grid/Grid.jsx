@@ -36,21 +36,3 @@ ColumnContainer.propTypes = {
   tabletSize: PropType.number,
   desktopSize: PropType.number,
 };
-
-// Column.propTypes = {
-//   alignVerticalCenter: PropType.boolean,
-//   tabletAlignVerticalCenter: PropType.boolean,
-//   desktopAlignVerticalCenter: PropType.boolean,
-//   hidden: PropType.boolean,
-//   tabletHidden: PropType.boolean,
-//   desktopHidden: PropType.boolean,
-//   center: PropType.boolean,
-//   tabletCenter: PropType.boolean,
-//   desktopCenter: PropType.boolean,
-//   offset: PropType.number,
-//   tabletOffset: PropType.number,
-//   desktopOffset: PropType.number,
-//   push: PropType.number,
-//   tabletPush: PropType.number,
-//   desktopPush: PropType.number,
-// };
