@@ -3,23 +3,9 @@ import View from "../components/View/View";
 import Container from "../components/Container/Container";
 import Title from "../components/Title/Title";
 import Input from "../components/Input/Input";
+import SimpleSelect from "../components/Select/SimpleSelect";
 import { ButtonPrimary, InvisibleButton } from "../components/Button/Button";
 import designTokens from "../config/designTokens";
-
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
 
 function SignUp() {
   return (
@@ -79,8 +65,7 @@ function SignUp() {
           />
         </View>
         <View>
-
-
+          <SimpleSelect/>
         </View>
         <View>
           <ButtonPrimary withoutMarginTop={true} disable>
