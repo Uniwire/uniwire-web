@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import designTokens from "../config/designTokens";
-import LogoImage from "../static/images/logo-preto.svg";
+import LogoImage from "../static/images/logo-black.svg";
 import WorldLogin from "../static/images/world-login.svg";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
