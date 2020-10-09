@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-black.svg";
-import WorldLogin from "../static/images/world-login.svg";
 import styled from "styled-components";
 import Input from "../components/Input/Input";
 import { ButtonPrimary, InvisibleButton } from "../components/Button/Button";
 import Title from "../components/Title/Title";
 import View from "../components/View/View";
-import { Small } from "../components/Text/Text";
 import { StyledColumn, ColumnContainer } from "../components/Grid/Grid";
 import { useForm } from "react-hook-form";
 import Image from "../components/Image/Image";
@@ -26,7 +24,7 @@ const Container = styled.div`
 `;
 
 function StudentResidences() {
-  const { register, handleSubmit, errors } = useForm();
+  const { handleSubmit } = useForm();
   const [residences, setResidences] = useState([{}]);
 
   function onSubmit() {
@@ -39,9 +37,9 @@ function StudentResidences() {
         "Content-Type": "application/json",
       }),
     }).then(response => response.json()).then(result => {
-      console.log(result);
       setResidences(result);
-    })
+      console.log(result);
+    }, [residences])
   }
 
   return (
@@ -70,9 +68,7 @@ function StudentResidences() {
             <Container>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <View>
-                  {
-                    residences[0]
-                  }
+                  {residences[0].name}
                 </View>
                 <View>
                   <Title
