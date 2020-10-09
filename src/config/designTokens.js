@@ -2,6 +2,7 @@ import PropType from "prop-types";
 
 const designTokens = {
   grid: {
+    gutter: 16,
     columns: {
       mobile: 4,
       tablet: 8,
@@ -74,15 +75,20 @@ const designTokens = {
     orange600: "#fcaf17",
     orange700: "#ff971b",
     orange800: "#fb8c15",
+    orange810: "#f08a4b",
+    orange850: "#ff792e",
     orange900: "#f96d14",
 
-    yellow300: "#feedc0",
+    yellow100: "#feedc0",
+    yellow200: "#fff4af",
+    yellow300: "#ffec75",
     yellow400: "#fde197",
     yellow510: "#f5cb5c",
     yellow600: "#fcc944",
-    yellow700: "#fcbd1b",
-    yellow800: "#e6ac19",
-    yellow900: "#b88a14",
+    yellow700: "#ffdd00",
+    yellow800: "#fcbd1b",
+    yellow900: "#e6ac19",
+    yellow910: "#b88a14",
 
     grey000: "#ffffff",
     grey025: "#fafafa",
