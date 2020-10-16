@@ -3,7 +3,9 @@ import Title from "../components/Title/Title";
 import designTokens from "../config/designTokens";
 import View from "../components/View/View";
 import { ButtonPrimary } from "../components/Button/Button";
-import history from '../../history';
+import { Container, ColumnContainer, StyledColumn } from "../components/Grid/Grid"
+import Image from "../components/Image/Image";
+import ExploreUniversity from "../static/images/explore-university.svg";
 
 function HomePage() {
   return (
@@ -18,9 +20,27 @@ function HomePage() {
           Uma plataforma para universidades mais conectadas
         </Title>
       </View>
-      <View>
-        <ButtonPrimary onClick={()=> history.push("/login")}>Anunciar Vaga</ButtonPrimary>
-      </View>
+
+      <StyledColumn>
+        <ColumnContainer desktopSize={6} tabletSize={12} size={12}>
+            <View>
+            <Container box={0} background={designTokens.colors.grey050} width={50}>
+              <View>
+              <Image src={ExploreUniversity} width={150} desktopWidth={250} alt="explorar universidade"/>
+              </View>
+              <ButtonPrimary >Anunciar Vaga</ButtonPrimary>
+
+            </Container>
+            </View>
+        </ColumnContainer>
+      <ColumnContainer desktopSize={6} tabletSize={12} size={12}>
+        <View>
+          <Container background={designTokens.colors.grey080} width={50}>
+            <ButtonPrimary >Anunciar Vaga</ButtonPrimary>
+          </Container>
+        </View>
+      </ColumnContainer>
+      </StyledColumn>
     </>
   );
 }

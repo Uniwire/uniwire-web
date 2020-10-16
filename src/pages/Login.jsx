@@ -2,28 +2,14 @@ import React, { useState } from "react";
 import designTokens from "../config/designTokens";
 import LogoImage from "../static/images/logo-black.svg";
 import WorldLogin from "../static/images/world-login.svg";
-import styled from "styled-components";
 import Input from "../components/Input/Input";
 import { ButtonPrimary, InvisibleButton } from "../components/Button/Button";
 import Title from "../components/Title/Title";
 import View from "../components/View/View";
 import { Small } from "../components/Text/Text";
-import { StyledColumn, ColumnContainer } from "../components/Grid/Grid";
+import { StyledColumn, ColumnContainer, Container } from "../components/Grid/Grid";
 import { useForm } from "react-hook-form";
 import Image from "../components/Image/Image";
-
-const Container = styled.div`
-  background: ${designTokens.colors.grey000};
-  width: 100%;
-  height: auto;
-  padding: 10px 40px 35px 40px;
-  box-shadow: ${designTokens.shadows.dark.idle};
-
-  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    width: 450px;
-    border-radius: 8px;
-  }
-`;
 
 function Login() {
   const { register, handleSubmit, errors } = useForm();
@@ -84,7 +70,7 @@ function Login() {
         </ColumnContainer>
         <ColumnContainer desktopSize={6} tabletSize={12} size={12}>
           <View>
-            <Container>
+            <Container box>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <View>
                   <Title
@@ -145,7 +131,7 @@ function Login() {
                   )}
                 </View>
                 <View>
-                  <ButtonPrimary withoutMarginTop={true} disable>
+                  <ButtonPrimary withoutMarginTop={true}>
                     Entrar
                   </ButtonPrimary>
                 </View>
