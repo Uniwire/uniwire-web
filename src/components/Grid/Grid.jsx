@@ -39,7 +39,7 @@ export const Container = styled.div`
   box-shadow: ${(props) => props.box ? designTokens.shadows.dark.idle : "none"};
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    width: ${(props) => props.width ? props.desktopWidth : "450"}px;
+    width: ${(props) => props.width ? props.desktopWidth : "50"}%;
     border-radius: 8px;
   }
 `;

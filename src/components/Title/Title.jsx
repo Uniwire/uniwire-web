@@ -36,9 +36,9 @@ const getFontWeight = (weight) => {
     case "bold":
       return 700;
     case "medium":
-      return 400;
+      return 600;
     case "regular":
-      return 300;
+      return 400;
     default:
       return null;
   }

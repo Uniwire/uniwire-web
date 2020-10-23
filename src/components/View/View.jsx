@@ -13,7 +13,7 @@ const View = styled.div`
     props.marginBottom ? props.marginBottom : "0"}px;
   padding-top: ${(props) => (props.paddingTop ? props.paddingTop : "0")}px;
   margin-right: ${(props) => (props.marginRight ? props.marginRight : "0")}px;
-  margin-left: ${(props) => (props.marginLeft ? props.marginleft : "0")}px;
+  margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "0")}px;
   bottom: ${(props) => (props.bottom ? props.bottom : "0")}px;
 
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
@@ -30,6 +30,9 @@ const View = styled.div`
       props.desktopPaddingLeft ? props.desktopPaddingLeft : "0"}px;
     padding-top: ${(props) =>
       props.desktopPaddingTop ? props.desktopPaddingTop : "0"}px;
+    bottom: ${(props) => (props.desktopBottom ? props.desktopBottom : "0")}px;
+    margin-right: ${(props) => (props.desktopMarginRight ? props.desktopMarginRight : "0")}px;
+    margin-left: ${(props) => (props.desktopMarginLeft ? props.desktopMarginLeft : "0")}px;
   }
 `;
 
@@ -44,7 +47,10 @@ View.propTypes = {
   direction: PropType.string,
   left: PropType.number,
   bottom: PropType.number,
+  desktopBottom: PropType.number,
   marginRight: PropType.number,
+  desktopMarginRight: PropType.number,
+  desktopMarginLeft: PropType.number,
   marginLeft: PropType.number,
   marginBottom: PropType.number,
   tabletLeft: PropType.number,
