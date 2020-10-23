@@ -14,14 +14,17 @@ const View = styled.div`
   padding-top: ${(props) => (props.paddingTop ? props.paddingTop : "0")}px;
   margin-right: ${(props) => (props.marginRight ? props.marginRight : "0")}px;
   margin-left: ${(props) => (props.marginLeft ? props.marginleft : "0")}px;
+  bottom: ${(props) => (props.bottom ? props.bottom : "0")}px;
 
   @media screen and (min-width: ${designTokens.breakpoints.tablet}px) {
     left: ${(props) => (props.tabletLeft ? props.tabletLeft : "0")}px;
-    justify-content: ${(props) => (props.tabletJustify ? props.tabletJustify : "center")};
+    justify-content: ${(props) =>
+      props.tabletJustify ? props.tabletJustify : "center"};
   }
 
   @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
-    justify-content: ${(props) => (props.desktopJustify ? props.desktopJustify : "center")};
+    justify-content: ${(props) =>
+      props.desktopJustify ? props.desktopJustify : "center"};
     left: ${(props) => (props.desktopLeft ? props.desktopLeft : "0")}px;
     padding-left: ${(props) =>
       props.desktopPaddingLeft ? props.desktopPaddingLeft : "0"}px;
@@ -40,6 +43,7 @@ View.propTypes = {
   tabletJustify: PropType.string,
   direction: PropType.string,
   left: PropType.number,
+  bottom: PropType.number,
   marginRight: PropType.number,
   marginLeft: PropType.number,
   marginBottom: PropType.number,
