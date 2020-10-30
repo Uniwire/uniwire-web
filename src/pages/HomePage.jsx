@@ -31,7 +31,7 @@ function HomePage() {
             weight="bold"
             color={designTokens.colors.orange300}
           >
-            Bem vindo à Uniwire
+            Bem vindx à Uniwire
           </Title>
           <Image
             src={LogoImage}
