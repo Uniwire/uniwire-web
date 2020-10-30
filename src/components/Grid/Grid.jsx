@@ -31,8 +31,24 @@ export const ColumnContainer = styled.div`
   }
 `;
 
+export const Container = styled.div`
+  background: ${(props) => props.background ? props.background : designTokens.colors.grey000};
+  width: ${(props) => props.width ? props.width : "100"}%;
+  height: auto;
+  padding: 10px 40px 35px 40px;
+  box-shadow: ${(props) => props.box ? designTokens.shadows.dark.idle : "none"};
+
+  @media screen and (min-width: ${designTokens.breakpoints.desktop}px) {
+    width: ${(props) => props.width ? props.desktopWidth : "50"}%;
+    border-radius: 8px;
+  }
+`;
+
 ColumnContainer.propTypes = {
   size: PropType.number,
   tabletSize: PropType.number,
   desktopSize: PropType.number,
+  background: PropType.string,
+  desktopWidth: PropType.number,
+  box: PropType.bool,
 };
