@@ -27,11 +27,14 @@ function StudentResidences() {
   const { handleSubmit } = useForm();
   const [residences, setResidences] = useState([{}]);
 
-  function onSubmit() {
-    const url = 'http://localhost:4000/v1/student_residences'
+  function onSubmit(data) {
+    const url = 'http://localhost:4000/v1/student_residences/find'
+
+    console.log(data)
 
     fetch(url, {
-      method: "GET",
+      method: "POST",
+      body: JSON.stringify({ search_term: "rep" }),
       headers: new Headers({
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -61,52 +64,24 @@ function StudentResidences() {
           desktopWidth={70}
           alt="logo uniwire"
         />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input width={10}
+              widthDesktop={400}
+              type="text"
+              name="text"
+              id="inputSearch"
+              placeholder="O que você procura?"
+          />
+          <ButtonPrimary withoutMarginTop={true} disable>
+            buscar
+          </ButtonPrimary>
+        </form>
       </View>
-      <StyledColumn>
-        <ColumnContainer desktopSize={6} tabletSize={12} size={12}>
-          <View>
-            <Container>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <View>
-                  {residences[0].name}
-                </View>
-                <View>
-                  <Title
-                    size="small"
-                    align="center"
-                    color={designTokens.colors.grey900}
-                  >
-                    Comece a conectar sua universidade!
-                  </Title>
-                </View>
-                <View>
-                  <Input
-                    widthDesktop={400}
-                    type="text"
-                    name="text"
-                    id="inputSearch"
-                    placeholder="O que você procura?"
-                  />
-                </View>
-                <View justify="left" left={5} leftTablet={130} leftDesktop={25}>
-
-                </View>
-                <View justify="left" left={5}>
-
-                </View>
-                <View>
-                  <ButtonPrimary withoutMarginTop={true} disable>
-                    Entrar
-                  </ButtonPrimary>
-                </View>
-              </form>
-              <View paddingTop={20} desktopPaddingTop={20}>
-                <InvisibleButton color={"light"}>Cadastre-se</InvisibleButton>
-              </View>
-            </Container>
-          </View>
-        </ColumnContainer>
-      </StyledColumn>
+      <View>
+        <View>
+          {residences[0].name}
+        </View>
+      </View>
     </>
   );
 }
